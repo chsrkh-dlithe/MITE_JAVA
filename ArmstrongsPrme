@@ -1,0 +1,52 @@
+import java.util.Scanner;
+public class ArmstrongsPrime 
+{   
+    static int ArstrongSum(int x,int y)
+    {
+        int as=0;
+        while(x<=y)
+        {
+            int m=x,n=x,k=x,d=0,sum=0;
+            while(k>0)
+            {
+                d++;
+                k=k/10;
+            }
+            while(m>0)
+            {
+                sum=sum+(int)(Math.pow((m%10),d));
+                m=m/10;
+                
+            }
+        if(sum==n)
+        as=as+sum;
+        x++;
+        }
+    
+        return as;
+    }
+    static boolean PrimeCheck(int n)
+    {
+        int c=0;
+        for(int i=1; i<=n; i++)
+        {
+            if(n%i==0)
+            c++;
+        }
+        if(c==2)
+        return true;
+        else
+        return false;
+    }
+    
+    public static void main (String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        int a=s.nextInt();
+        int b=s.nextInt();
+        int arsum=ArstrongSum(a,b);
+        System.out.println("The sum of armtrong numbers = "+arsum);
+        System.out.println(PrimeCheck(arsum));
+    }  
+    
+}
