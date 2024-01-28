@@ -1,0 +1,64 @@
+import java.util.Scanner;
+public class Main
+{
+    static int[] NearestPrime(int n)
+    {
+        int[] pr=new int[2];
+           
+        if(Prime(n))
+        {
+            pr[0]=n;
+            return pr;
+        }
+        else
+        {  
+            int x=n;
+            int y=n;
+            while(true)
+            {
+                if(Prime(--x)||(Prime(++y)))
+                break;
+                
+            }
+            System.out.println("now x = "+x);
+            System.out.println("now y = "+y);
+            if(Prime(x)&&Prime(y))
+            {
+                pr[0]=x;
+                pr[1]=y;
+                return pr;
+            }
+            else if(Prime(x))
+            {
+                pr[0]=x;
+                return pr;
+            }
+            else
+            {
+                pr[0]=y;
+            return pr;
+            }
+        }
+    }
+    static boolean Prime(int m)
+    {
+        int c=0;
+        for(int i=1;i<=m;i++)
+        {
+            if(m%i==0)
+            c++;
+        }
+        if(c==2)
+        return true;
+        else
+        return false;
+    }
+	public static void main(String[] args)
+	{
+	    Scanner s = new Scanner(System.in);
+	    int a=s.nextInt();
+	    int[] p=NearestPrime(a);
+	    for(int i=0;i<p.length;i++)
+	    System.out.println(p[i]);
+	}
+}
