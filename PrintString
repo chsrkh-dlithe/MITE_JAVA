@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class PrintSring
+{
+    static void PrintString(String str , int n)
+    {
+        String st=str;
+        for(int i=1; i<n; i++)
+        {
+            
+            str=str+st;
+        }
+        System.out.println(str);
+    }
+    public static void main (String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        String str=s.nextLine();
+        int x=s.nextInt();
+        PrintString(str,x);
+        
+    }
+}
