@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class PrintNumbers
+{
+    static void PrintPositive(int n)
+    {
+        for(int i=0;i<=n;i++)
+        {
+            System.out.println(i+"  ");
+        }
+    }
+    static void PrintNegitive(int n)
+    {
+        for(int i=0;n<=i;n++)
+        {
+            System.out.println(n+"  ");
+        }
+    }
+	public static void main(String[] args) {
+	    Scanner s = new Scanner(System.in);
+	    int x=s.nextInt();
+	    if(x<0)
+	    PrintNegitive(x);
+	    else
+	    PrintPositive(x);
+	}
+}
