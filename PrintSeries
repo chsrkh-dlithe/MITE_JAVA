@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class PrintSeries
+{   
+    static void Series(int a,int b, int n)
+    {
+        int sum=a+(int)Math.pow(2,0)*b;
+        System.out.println(sum);
+        for(int i=1;i<n;i++)
+        {
+            
+            sum=sum+((int)(Math.pow(2,i))*b);
+            System.out.println(sum);
+        }
+        
+    }
+    public static void main (String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+        
+        int a=s.nextInt();
+        int b=s.nextInt();
+        int n=s.nextInt();
+        
+        
+        Series(a,b,n);
+        
+    }  
+    
+}
