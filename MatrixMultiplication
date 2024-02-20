@@ -1,0 +1,74 @@
+import java.util.*;
+public class MatrixMul 
+{
+    static int[][] Matrixmul(int[][] a,int b[][],int x,int y,int z)
+    {
+        int c[][]=new int[x][y];
+        for(int i=0;i<x;i++)
+        {
+            for(int j=0;j<y;j++)
+            {
+                
+                for(int k=0;k<z;k++)
+                {
+                    c[i][j]+=a[i][k]*b[k][j];
+                }
+            }
+        }
+
+        return c;
+
+
+    }
+    public static void main(String[] args) 
+    {
+        int r1,c1,r2,c2,i,j;
+        int a[][]=new int[10][10];
+        int b[][]=new int[10][10];
+        int c[][]=new int[10][10];
+        Scanner s = new Scanner(System.in);
+        System.err.println("Enter the size of the first matrix:");
+        r1=s.nextInt();
+        c1=s.nextInt();
+        System.err.println("Enter the size of the second matrix:");
+        r2=s.nextInt();
+        c2=s.nextInt();
+        if(c1!=r2)
+        System.err.println("Matrix Multiplication is not possible");
+        else
+        {
+            System.err.println("Enter the elements into first martrix : ");
+            for(i=0;i<r1;i++)
+            {
+                for(j=0;j<c1;j++)
+                {
+                    a[i][j]=s.nextInt();    
+                }
+            }
+            System.err.println("Enter the elements into second martrix : ");
+            for(i=0;i<r2;i++)
+            {
+                for(j=0;j<c2;j++)
+                {
+                    b[i][j]=s.nextInt();    
+                }
+            }
+            c=Matrixmul(a, b, r1,c2,c1);
+            System.err.println(" The matrix multiplication is :");
+            for(i=0;i<r1;i++)
+            {
+                for(j=0;j<c2;j++)
+                {
+                   System.out.print(c[i][j]+"\t");    
+                }
+                System.out.println();
+            }
+
+
+        }
+
+        
+            
+    }
+    
+}
