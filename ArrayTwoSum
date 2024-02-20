@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class ArrayTwoSum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a[] = new int[n];
+        int b[] = new int[2];
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+        int s = sc.nextInt();
+        b = TwoSum(a, s);
+        for (int i : b)
+            System.out.println(i);
+    }
+
+    static int[] TwoSum(int x[], int s) {
+        int z[] = new int[2];
+        for (int i = 0; i < x.length; i++) {
+            for (int j = i + 1; j < x.length; j++) {
+                if (x[i] + x[j] == s) {
+                    z[0] = i;
+                    z[1] = j;
+                    break;
+                }
+
+            }
+        }
+
+        return z;
+    }
+}
