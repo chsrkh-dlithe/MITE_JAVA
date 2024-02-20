@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+import javax.rmi.ssl.SslRMIClientSocketFactory;
+
+public class LongestPalindromeStr {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        System.out.println(LPS(s));
+        sc.close();
+    }
+
+    static String LPS(String s) {
+        String lps = "";
+        int len = 0;
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i + 1; j < s.length(); j++) {
+                String sb = s.substring(i, j + 1);
+                if (isPalindrome(sb)) {
+                    if (len < sb.length()) {
+                        len = sb.length();
+                        lps = sb;
+                    }
+
+                }
+
+            }
+        }
+
+        return lps;
+    }
+
+    static boolean isPalindrome(String sb) {
+        String sbr = "";
+        for (int i = sb.length() - 1; i >= 0; i--) {
+            String s = Character.toString(sb.charAt(i));
+            sbr = sbr.concat(s);
+        }
+        if (sbr.equals(sb))
+            return true;
+        else
+            return false;
+    }
+
+}
