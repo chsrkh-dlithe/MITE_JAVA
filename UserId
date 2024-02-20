@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class UserId {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your User ID: ");
+        String s = sc.nextLine();
+        System.out.println(" Given User ID : " + s);
+        int d = 0, l = 0, u = 0, sp = 0, spl = 0;
+        if (s.length() >= 8) {
+            for (int i = 0; i < s.length(); i++) {
+                if (Character.isDigit(s.charAt(i)))
+                    d++;
+                else if (Character.isLowerCase(s.charAt(i)))
+                    l++;
+                else if (Character.isUpperCase(s.charAt(i)))
+                    u++;
+                else if (Character.isWhitespace(s.charAt(i)))
+                    sp++;
+                else
+                    spl++;
+            }
+            if (d > 0 && u > 0 && l > 0 && sp == 0 && spl > 0)
+                System.err.print(1);
+            else
+                System.out.println(0);
+
+        }
+
+        sc.close();
+
+    }
+
+}
