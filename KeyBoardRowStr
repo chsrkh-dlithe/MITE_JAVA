@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class KeyBoardRowStr {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String s[] = new String[n];
+        for (int i = 0; i < n; i++)
+            System.out.println(i + "   " + s[i]);
+        for (int i = 0; i < n; i++) {
+            s[i] = sc.nextLine();
+        }
+        System.out.println("Given Strings are :");
+        for (int i = 0; i < n; i++)
+            System.out.println(i + "   " + s[i]);
+
+        // KBRS(s, n);
+        sc.close();
+    }
+
+    static void KBRS(String s[], int n) {
+        String s1 = "qwertyuiop", s2 = "asdfghjkl", s3 = "zxcvbnm";
+        String srs[] = new String[n];
+        int k = 0;
+        int c = 0;
+        for (int i = 0; i < s.length; i++) {
+            c = 0;
+            for (int j = 0; j < s[i].length(); j++) {
+                String sr = Character.toString(s[i].charAt(j));
+                if (!(s1.contains(sr)))
+                    c++;
+            }
+            if (c == 0)
+                srs[k++] = s[i];
+            c = 0;
+            for (int j = 0; j < s[i].length(); j++) {
+                String sr = Character.toString(s[i].charAt(j));
+                if (!(s2.contains(sr)))
+                    c++;
+            }
+            if (c == 0)
+                srs[k++] = s[i];
+            c = 0;
+            for (int j = 0; j < s[i].length(); j++) {
+                String sr = Character.toString(s[i].charAt(j));
+                if (!(s3.contains(sr)))
+                    c++;
+            }
+            if (c == 0)
+                srs[k++] = s[i];
+
+        }
+    }
+}
