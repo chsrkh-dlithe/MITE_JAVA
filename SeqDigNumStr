@@ -1,0 +1,48 @@
+import java.util.Scanner;
+public class SeqDigitNumStr {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        System.out.println(SDNS(s));
+    }
+
+    static boolean SDNS(String s) 
+    {
+       String sd="0123456789";
+        String ssd="";
+        for(int i=0;i<s.length();i++)
+        {
+            char c=s.charAt(i);
+            if(Character.isDigit(c))
+            ssd=ssd+c;
+        }
+        System.out.println(ssd);
+        char ss[]=ssd.toCharArray();
+        // for(char i:ss)
+        // System.out.println(i);
+         for(int i=0;i<ss.length;i++)
+         {
+             for(int j=i+1;j<ss.length;j++)
+             {
+                 if(ss[i]>ss[j])
+                 {
+                     char cc=ss[i];
+                     ss[i]=ss[j];
+                     ss[j]=cc;
+                }
+            }
+         
+         }
+         System.out.println(" After sorting :");
+        //  for(char k:ss)
+        //  System.out.println(k);
+          String sst=new String(ss);
+         
+        System.out.println(sst);
+        if(sd.contains(sst))
+        return true;
+        else
+        return false;
+        
+    }
+}
