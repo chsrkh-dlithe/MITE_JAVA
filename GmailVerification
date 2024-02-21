@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class GmailVerification {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        System.out.println(GMV(s));
+    }
+
+    static boolean GMV(String s) {
+        int sp = 0, spl = 0;
+        if ((Character.isLetter(s.charAt(0)))) {
+            String sb = s.substring(0, s.length() - 10);
+            System.out.println(sb);
+            for (int i = 0; i < sb.length(); i++) {
+                char c = sb.charAt(i);
+                if (Character.isSpaceChar(c))
+                    sp++;
+                else if (!(Character.isLetterOrDigit(c))) {
+                    if (!(c == '.'))
+                        spl++;
+                }
+            }
+            if (sp == 0 && spl == 0)
+                return true;
+            else
+                return false;
+
+        }
+        return false;
+    }
+}
