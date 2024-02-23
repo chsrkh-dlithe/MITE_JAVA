@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class UniqueCharSubStr {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int l = UCSS(s);
+        System.out.println(l);
+        sc.close();
+    }
+
+    static int UCSS(String s) {
+        int len = 0;
+        for (int i = 0; i < s.length() - 2; i++) {
+            for (int j = i + 1; j < s.length(); j++) {
+                String ss = s.substring(i, j);
+                if (UniqueStr(ss)) {
+                    if (len < ss.length())
+                        len = ss.length();
+                }
+            }
+
+        }
+        return len;
+    }
+
+    static boolean UniqueStr(String s) {
+
+        for (int k = 0; k < s.length(); k++) {
+            if (!(s.indexOf(s.charAt(k)) == s.lastIndexOf(s.charAt(k))))
+                return false;
+        }
+        return true;
+    }
+}
