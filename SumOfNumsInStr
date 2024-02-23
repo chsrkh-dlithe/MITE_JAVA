@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class SumofNumsInStr {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        String s=sc.nextLine();
+        int n=SumofNums(s);
+        System.out.println(n);
+        sc.close();
+    }
+    static int SumofNums(String s)
+    {
+        int sum=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if (Character.isDigit(s.charAt(i))) { // Check if the character at position i is a digit
+                String stn = "" + s.charAt(i); // Initialize stn with the first digit found
+                int j = i + 1;
+                while (j < s.length() && Character.isDigit(s.charAt(j))) { // Continue if the next character is also a digit
+                    stn += s.charAt(j);
+                    j++; // Move to the next character
+                }
+                i = j - 1; // Update i to skip the digits already processed
+
+                // Now stn contains a full number as a string, parse it to integer
+                int n = Integer.parseInt(stn); // Convert the numeric string to an integer
+                sum += n; // Add the number to the sum
+
+               }
+        }
+        return sum;
+    }
+}
