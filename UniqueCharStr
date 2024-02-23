@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class UniqueCharStr {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter string:");
+        String s=sc.nextLine();
+        String us=UniqueCharString(s);
+        System.out.println(us);
+        sc.close();
+    }
+    static String UniqueCharString(String s)
+    {
+        String ustr="";
+        for(int i=0;i<s.length();i++)
+        {
+            if(!ustr.contains(Character.toString(s.charAt(i))))
+            ustr=ustr+s.charAt(i);
+        }
+
+        return ustr;
+    }
+}
